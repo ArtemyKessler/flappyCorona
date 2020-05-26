@@ -21,7 +21,7 @@ public class Bird : MonoBehaviour
     {
         if (isDead == false) 
         {
-            if (Input.GetMouseButtonDown(0)) 
+            if (Input.GetMouseButtonDown(0))
             {
                 rb.velocity = Vector2.zero;
                 rb.AddForce(new Vector2(0, upForce));

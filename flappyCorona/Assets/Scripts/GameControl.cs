@@ -13,7 +13,7 @@ public class GameControl : MonoBehaviour
     public GameObject WashWarning;
     public GameObject Bird;
     public GameObject HPBar;
-    public GameObject WashButton;
+    public Button WashButton;
     public Text CountdownText;
     public Text ScoreText;
     public float HealAmount = 30;
@@ -35,7 +35,12 @@ public class GameControl : MonoBehaviour
         }
     }
 
-     void Update()
+    private void Start()
+    {
+        WashButton.onClick.AddListener(washHands);
+    }
+
+    void Update()
     {
         if (isGameOver == true && Input.GetMouseButtonDown(0)) 
         {
@@ -46,7 +51,7 @@ public class GameControl : MonoBehaviour
             timePassed += Time.deltaTime;
             if (timePassed > 5.0f)
             {
-                WashButton.SetActive(true);
+                WashButton.gameObject.SetActive(true);
                 CountdownText.gameObject.SetActive(true);
                 isCountdown = true;
                 timePassed = 0f;
@@ -61,7 +66,7 @@ public class GameControl : MonoBehaviour
             {
                 BirdDied();
                 timePassed = 0f;
-                WashButton.SetActive(false);
+                WashButton.gameObject.SetActive(false);
             }
         }
     }
@@ -112,7 +117,7 @@ public class GameControl : MonoBehaviour
     {
         isCountdown = false;
         timePassed = 0f;
-        WashButton.SetActive(false);
+        WashButton.gameObject.SetActive(false);
         CountdownText.gameObject.SetActive(false);
     }
 }

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2462577732846021673}
   - component: {fileID: 2462577732846021679}
   - component: {fileID: 5135624216070191670}
+  - component: {fileID: 4026923180839776112}
   m_Layer: 0
   m_Name: Columns
   m_TagString: Untagged
@@ -50,7 +51,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.026292562, y: 1.67}
+  m_Offset: {x: 0.026292562, y: -0.025173187}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -61,7 +62,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.47, y: 10.75}
+  m_Size: {x: 0.47000003, y: 5.719162}
   m_EdgeRadius: 0
 --- !u!50 &2462577732846021672
 Rigidbody2D:
@@ -120,6 +121,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 957bff2e55c674249b43a00ef1d74d13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4026923180839776112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2462577732846021668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3aa3641fe7795f4aa0829e81c2e1f56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Virus1: {fileID: 21300008, guid: 930f28a7780a06d4fb6081db885bf375, type: 3}
+  Virus2: {fileID: 21300010, guid: 930f28a7780a06d4fb6081db885bf375, type: 3}
+  Virus3: {fileID: 21300012, guid: 930f28a7780a06d4fb6081db885bf375, type: 3}
+  Virus4: {fileID: 21300014, guid: 930f28a7780a06d4fb6081db885bf375, type: 3}
+  Virus5: {fileID: 21300016, guid: 930f28a7780a06d4fb6081db885bf375, type: 3}
 --- !u!1 &2462577733407153354
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,7 +207,7 @@ SpriteRenderer:
   m_SortingLayerID: -171433317
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f9487a64a492e3e4e8608b7015f472ba, type: 3}
+  m_Sprite: {fileID: 21300008, guid: 930f28a7780a06d4fb6081db885bf375, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -213,8 +231,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.05258751, y: 0.07887697}
-  m_Size: {x: 5.4121046, y: 5.4646893}
+  m_Offset: {x: 0.11921485, y: 0.08599559}
+  m_Size: {x: 4.878694, y: 4.878694}
   m_Direction: 0
 --- !u!1 &2462577733692111306
 GameObject:
@@ -285,7 +303,7 @@ SpriteRenderer:
   m_SortingLayerID: -171433317
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f9487a64a492e3e4e8608b7015f472ba, type: 3}
+  m_Sprite: {fileID: 21300008, guid: 930f28a7780a06d4fb6081db885bf375, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -309,6 +327,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.05258751, y: 0.07887697}
-  m_Size: {x: 5.4121046, y: 5.4646893}
+  m_Offset: {x: 0.05258719, y: -0.011542439}
+  m_Size: {x: 4.678488, y: 4.74518}
   m_Direction: 0
