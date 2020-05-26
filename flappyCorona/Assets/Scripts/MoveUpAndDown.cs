@@ -25,12 +25,15 @@ public class MoveUpAndDown : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = new Vector2(rb.velocity.x, direction * speed);
-        time += Time.deltaTime;
-        if (time >= timeBeforeSwitch) 
+        if (GameControl.instance.isGameOver == false && GameControl.instance.isPaused == false)
         {
-            direction *= -1;
-            time = 0;
+            rb.velocity = new Vector2(rb.velocity.x, direction * speed);
+            time += Time.deltaTime;
+            if (time >= timeBeforeSwitch)
+            {
+                direction *= -1;
+                time = 0;
+            }
         }
     }
 }

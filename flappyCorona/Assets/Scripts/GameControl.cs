@@ -6,6 +6,10 @@ using UnityEngine.UI;
 
 public class GameControl : MonoBehaviour
 {
+    public GameObject adPanel;
+    public bool isPaused = false;
+    private float lastScale = 0;
+
     public static GameControl instance;
     public GameObject gameOverText;
     public GameObject WarningText;
@@ -18,11 +22,14 @@ public class GameControl : MonoBehaviour
     public Text ScoreText;
     public float HealAmount = 30;
     public bool isGameOver = false;
+
     public float scrollSpeed = -1.5f;
+
     private int score = 0;
     public int maskCount = 0;
     private float timePassed = 0;
     private bool isCountdown = false;
+    private float countdownTime = 3.0f;
 
      void Awake()
     {
@@ -37,6 +44,7 @@ public class GameControl : MonoBehaviour
 
     private void Start()
     {
+        adPanel.SetActive(false);
         WashButton.onClick.AddListener(washHands);
     }
 
@@ -46,7 +54,7 @@ public class GameControl : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-        if (isGameOver != true)
+        if (isGameOver != true && isPaused != true)
         {
             timePassed += Time.deltaTime;
             if (timePassed > 5.0f)
@@ -58,17 +66,41 @@ public class GameControl : MonoBehaviour
             }
             if (isCountdown)
             {
-                float timeLeft = 3.0f - timePassed;
+                float timeLeft = countdownTime - timePassed + 1;
                 float normalizedTimeLeft = Mathf.Floor(timeLeft);
                 CountdownText.text = "Time left: " + normalizedTimeLeft.ToString();
             }
-            if (isCountdown && timePassed > 3)
+            if (isCountdown && timePassed > countdownTime)
             {
-                BirdDied();
+                //BirdDied();
+                pauseGame();
+
                 timePassed = 0f;
                 WashButton.gameObject.SetActive(false);
             }
         }
+    }
+
+    public void pauseGame()
+    {
+        Rigidbody2D birdRB = Bird.GetComponent<Rigidbody2D>();
+        birdRB.velocity = Vector2.zero;
+        birdRB.angularVelocity = 0;
+        adPanel.SetActive(true);
+        CountdownText.gameObject.SetActive(false);
+        WashButton.gameObject.SetActive(false);
+        isPaused = true;
+        lastScale = birdRB.gravityScale;
+        birdRB.gravityScale = 0;
+    }
+
+    public void resumeGame()
+    {
+        isCountdown = false;
+        timePassed = 0f;
+        adPanel.SetActive(false);
+        isPaused = false;
+        Bird.GetComponent<Rigidbody2D>().gravityScale = lastScale;
     }
 
     public void BirdScored()
@@ -104,6 +136,10 @@ public class GameControl : MonoBehaviour
     {
         gameOverText.SetActive(true);
         HPBar.SetActive(false);
+        isPaused = false;
+        WashButton.gameObject.SetActive(false);
+        CountdownText.gameObject.SetActive(false);
+        adPanel.SetActive(false);
         isGameOver = true; 
     }
 

@@ -13,13 +13,14 @@ public class Bird : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        rb.freezeRotation = true;
         anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isDead == false) 
+        if (isDead == false && GameControl.instance.isPaused == false) 
         {
             if (Input.GetMouseButtonDown(0))
             {
@@ -33,10 +34,17 @@ public class Bird : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        rb.velocity = Vector2.zero;
-        isDead = true;
-        anim.SetTrigger("Die");
-        GameControl.instance.BirdDied();
-        rb.gravityScale = 1;
+        int rnd = Random.Range(0, 10);
+        if (rnd < 3)
+        {
+            transform.position = Vector3.zero;
+            GameControl.instance.pauseGame();
+        } else {
+            rb.velocity = Vector2.zero;
+            isDead = true;
+            anim.SetTrigger("Die");
+            GameControl.instance.BirdDied();
+            rb.gravityScale = 1;
+        }
     }
 }

@@ -16,14 +16,16 @@ public class ScrollingObject : MonoBehaviour
     void Update()
     {
         float newSpeed = GameControl.instance.scrollSpeed;
-        if (newSpeed != savedScrollSpeed)
+        if (newSpeed != savedScrollSpeed && GameControl.instance.isPaused == false)
         {
+            Debug.Log("");
             savedScrollSpeed = newSpeed;
             rb.velocity = new Vector2(savedScrollSpeed, 0);
         }
-        if (GameControl.instance.isGameOver == true) 
+        if (GameControl.instance.isGameOver == true || GameControl.instance.isPaused) 
         {
             rb.velocity = Vector2.zero;
+            savedScrollSpeed = 0f;
         } 
     }
 }

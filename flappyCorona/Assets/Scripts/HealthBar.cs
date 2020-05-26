@@ -22,7 +22,7 @@ public class HealthBar : MonoBehaviour
         barImage.fillAmount = currHp;
         if (currHp <= 0f)
         {
-            GameControl.instance.BirdDied();
+            GameControl.instance.pauseGame();
         }
     }
 

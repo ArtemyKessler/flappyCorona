@@ -29,8 +29,9 @@ public class MaskPool : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timeSinceLastSpawn += Time.deltaTime;
-        if (GameControl.instance.isGameOver == false && timeSinceLastSpawn >= spawnRate)
+        if(GameControl.instance.isGameOver == false && GameControl.instance.isPaused == false)
+            timeSinceLastSpawn += Time.deltaTime;
+        if (GameControl.instance.isGameOver == false && GameControl.instance.isPaused == false && timeSinceLastSpawn >= spawnRate)
         {
             timeSinceLastSpawn = 0;
             float spawnY = Random.Range(maskMin, maskMax);
