@@ -6,7 +6,7 @@ public class MaskPool : MonoBehaviour
 {
     public GameObject maskPrefab;
     public int maskPoolSize = 5;
-    public float spawnRate = 5f;
+    public float spawnRate = 6.5f;
     public float maskMin = -1f;
     public float maskMax = 2f;
     public float maskMinX = -1f;

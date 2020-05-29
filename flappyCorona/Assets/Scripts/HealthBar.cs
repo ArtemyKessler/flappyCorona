@@ -17,12 +17,15 @@ public class HealthBar : MonoBehaviour
 
     private void Update()
     {
-        hp.Update();
-        float currHp = hp.GetHpNormalized(); ;
-        barImage.fillAmount = currHp;
-        if (currHp <= 0f)
+        if (GameControl.instance.isGameOver == false && GameControl.instance.isPaused == false)
         {
-            GameControl.instance.pauseGame();
+            hp.Update();
+            float currHp = hp.GetHpNormalized();
+            barImage.fillAmount = currHp;
+            if (currHp <= 0f)
+            {
+                GameControl.instance.pauseGame();
+            }
         }
     }
 

@@ -27,7 +27,17 @@ public class Bird : MonoBehaviour
                 rb.velocity = Vector2.zero;
                 rb.AddForce(new Vector2(0, upForce));
                 anim.SetTrigger("Flap");
-            }
+            } 
+            //if (Input.touchCount > 0) 
+            //{
+            //    Touch touch = Input.GetTouch(0);
+            //    if (touch.phase == TouchPhase.Stationary) 
+            //    {
+            //        rb.velocity = Vector2.zero;
+            //        rb.AddForce(new Vector2(0, upForce * 40 * Time.deltaTime));
+            //        anim.SetTrigger("Flap");
+            //    }
+            //}
         }
     }
 
@@ -37,7 +47,7 @@ public class Bird : MonoBehaviour
         int rnd = Random.Range(0, 10);
         if (rnd < 3)
         {
-            transform.position = Vector3.zero;
+            transform.position = new Vector3(-1,0,0);
             GameControl.instance.pauseGame();
         } else {
             rb.velocity = Vector2.zero;

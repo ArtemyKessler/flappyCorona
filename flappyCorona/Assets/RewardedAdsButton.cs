@@ -8,7 +8,7 @@ using UnityEngine.Advertisements;
 public class RewardedAdsButton : MonoBehaviour, IUnityAdsListener
 {
     string gameId = "3623206";
-    bool testMode = true;
+    bool testMode = false;
     const int MAX_HP = 100;
 
     Button myButton;
