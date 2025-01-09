@@ -24,7 +24,7 @@ public class Bird : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                rb.velocity = Vector2.zero;
+                rb.linearVelocity = Vector2.zero;
                 rb.AddForce(new Vector2(0, upForce));
                 anim.SetTrigger("Flap");
             } 
@@ -50,7 +50,7 @@ public class Bird : MonoBehaviour
             transform.position = new Vector3(-1,0,0);
             GameControl.instance.pauseGame();
         } else {
-            rb.velocity = Vector2.zero;
+            rb.linearVelocity = Vector2.zero;
             isDead = true;
             anim.SetTrigger("Die");
             GameControl.instance.BirdDied();

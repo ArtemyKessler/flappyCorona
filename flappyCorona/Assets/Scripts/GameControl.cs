@@ -109,10 +109,11 @@ public class GameControl : MonoBehaviour
 
     public void pauseGame()
     {
+        Debug.Log("pause");
         musicBox.GetComponent<AudioSource>().Stop();
         isAdWatched = false;
         Rigidbody2D birdRB = Bird.GetComponent<Rigidbody2D>();
-        birdRB.velocity = Vector2.zero;
+        birdRB.linearVelocity = Vector2.zero;
         birdRB.angularVelocity = 0;
         adPanel.SetActive(true);
         CountdownText.gameObject.SetActive(false);
@@ -199,6 +200,7 @@ public class GameControl : MonoBehaviour
 
     public void BirdDied() 
     {
+        Debug.Log("DEAD");
         Screamer.GetComponent<AudioSource>().Play();
         gameOverText.SetActive(true);
         HPBar.SetActive(false);

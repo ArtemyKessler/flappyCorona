@@ -27,7 +27,7 @@ public class MoveUpAndDown : MonoBehaviour
     {
         if (GameControl.instance.isGameOver == false && GameControl.instance.isPaused == false)
         {
-            rb.velocity = new Vector2(rb.velocity.x, direction * speed);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, direction * speed);
             time += Time.deltaTime;
             if (time >= timeBeforeSwitch)
             {
